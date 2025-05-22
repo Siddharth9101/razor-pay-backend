@@ -16,7 +16,7 @@ const razorpayInstance = new Razorpay({
 
 app.use(
   cors({
-    origin: "https://ecom-react-g6kc.onrender.com/",
+    origin: "https://ecom-react-g6kc.onrender.com",
     credentials: true,
   })
 );
