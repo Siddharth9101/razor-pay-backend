@@ -18,7 +18,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-      match: [/^\d{6}$/, "Password must be exactly 6 digits"],
+      match: [
+        /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>/?]{6,}$/,
+        "Password must be at least 6 characters",
+      ],
     },
   },
   {
