@@ -11,8 +11,7 @@ const productRouter = require("./routes/products.route.js");
 // middlewares
 app.use(
   cors({
-    // origin: "https://ecom-react-g6kc.onrender.com",
-    origin: "http://localhost:5173",
+    origin: "https://ecom-react-g6kc.onrender.com",
     credentials: true,
   })
 );
