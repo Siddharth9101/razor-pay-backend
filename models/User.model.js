@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema(
         "Password must be at least 6 characters",
       ],
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
@@ -30,6 +34,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+// hash the password
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
