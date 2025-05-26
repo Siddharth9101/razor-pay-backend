@@ -73,6 +73,10 @@ const getAllOrders = async (req, res) => {
       .populate("products")
       .sort({ createdAt: -1 });
 
+    if (!orders) {
+      res.status(200).json([]);
+    }
+
     res.status(200).json(orders);
   } catch (error) {
     console.log(error);
