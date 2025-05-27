@@ -90,7 +90,7 @@ const getAllOrdersAdmin = async (req, res) => {
       .populate("products")
       .sort({ createdAt: -1 });
 
-    res.status(200).json(orders);
+    res.status(200).json({ orders });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error." });
