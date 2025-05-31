@@ -7,6 +7,7 @@ const connectToDB = require("./configs/db.js");
 const authRouter = require("./routes/auth.route.js");
 const orderRouter = require("./routes/orders.route.js");
 const productRouter = require("./routes/products.route.js");
+const userRouter = require("./routes/user.route.js");
 
 // middlewares
 app.use(
@@ -25,6 +26,7 @@ connectToDB();
 app.use("/api/auth", authRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 
 // creating server
 app.listen(3000, () => {

@@ -88,6 +88,7 @@ const getAllOrdersAdmin = async (req, res) => {
   try {
     const orders = await OrderModel.find({})
       .populate("products")
+      .populate("userId")
       .sort({ createdAt: -1 });
 
     res.status(200).json({ orders });

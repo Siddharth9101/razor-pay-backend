@@ -27,8 +27,8 @@ const signUpUser = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: false,
+      sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -72,8 +72,8 @@ const signInUser = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: false,
+      sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -138,7 +138,9 @@ const loginAdmin = async (req, res) => {
       }
     );
 
-    res.status(200).json({ message: "Login successful", token });
+    res
+      .status(200)
+      .json({ message: "Login successful", token, _id: result._id });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error." });
